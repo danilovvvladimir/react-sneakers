@@ -1,14 +1,29 @@
 import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
+import Cart from "../Cart/Cart";
 import Menu from "../Menu/Menu";
 
-const Layout: FC = () => {
+interface LayoutProps {
+  isCartVisible: boolean;
+  setIsCartVisible: (state: boolean) => void;
+}
+
+const Layout: FC<LayoutProps> = ({ isCartVisible, setIsCartVisible }) => {
   return (
     <>
       <header className="header">
         <div className="container"></div>
-        <Menu />
+        <Menu
+          isCartVisible={isCartVisible}
+          setIsCartVisible={setIsCartVisible}
+        />
       </header>
+      {isCartVisible && (
+        <Cart
+          isCartVisible={isCartVisible}
+          setIsCartVisible={setIsCartVisible}
+        />
+      )}
       <Outlet />
     </>
   );

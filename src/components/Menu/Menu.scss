@@ -20,6 +20,9 @@
     align-items: center;
   }
   &__link {
+    cursor: pointer;
+    border: none;
+    background: transparent;
     line-height: 0;
     path {
       transition: all 0.25s ease;

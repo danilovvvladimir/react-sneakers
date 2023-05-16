@@ -1,0 +1,35 @@
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  padding: 30px 20px;
+  &-image {
+    width: 70px;
+    height: 70px;
+    margin-right: 21px;
+  }
+  &-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 8px;
+  }
+  &-price {
+    font-weight: bold;
+  }
+  &-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    &:hover {
+      background-color: #d63737;
+      border-color: #d63737;
+      path {
+        fill: #fff;
+      }
+    }
+  }
+}

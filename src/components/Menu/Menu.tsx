@@ -1,11 +1,21 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 import logoIMG from "../../assets/images/logo.png";
+import Cart from "../Cart/Cart";
 
 import "./Menu.scss";
+interface MenuProps {
+  isCartVisible: boolean;
+  setIsCartVisible: (state: boolean) => void;
+}
 
-const Menu: FC = () => {
+const Menu: FC<MenuProps> = ({ isCartVisible, setIsCartVisible }) => {
+  const handleOpenCart = (event: React.MouseEvent<HTMLElement>) => {
+    document.querySelector("body")!.style.overflow = "hidden";
+    setIsCartVisible(true);
+  };
+
   return (
     <nav className="menu">
       <div className="container">
@@ -20,7 +30,9 @@ const Menu: FC = () => {
             </Link>
           </div>
           <div className="menu__links">
-            <Link to="/cart" className="menu__link menu__link--cart">
+            <button
+              className="menu__link menu__link--cart"
+              onClick={(event) => handleOpenCart(event)}>
               <svg
                 width="20"
                 height="20"
@@ -50,7 +62,7 @@ const Menu: FC = () => {
                 />
               </svg>
               <div className="menu__cart-price">1205 руб.</div>
-            </Link>
+            </button>
             <Link to="/bookmarks" className="menu__link menu__link--bookmarks">
               <svg
                 width="21"
