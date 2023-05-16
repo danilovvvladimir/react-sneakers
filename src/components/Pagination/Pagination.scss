@@ -1,0 +1,28 @@
+@import "../../assets/styles/variables.scss";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  gap: 10px;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__list-item {
+    &--active {
+      .btn {
+        background-color: $accent-color;
+        color: #fff;
+      }
+    }
+  }
+  .btn {
+    padding: 10px 17px;
+  }
+}

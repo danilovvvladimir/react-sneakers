@@ -1,7 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
+import EmptyBookmarks from "../../components/EmptyBookmarks/EmptyBookmarks";
 
-const BookMarksPage = () => {
-  return <div>BookMarksPage</div>;
+const BookMarksPage: FC = () => {
+  return (
+    <main className="bookmarks">
+      <EmptyBookmarks />
+    </main>
+  );
 };
 
 export default BookMarksPage;

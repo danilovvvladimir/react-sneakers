@@ -64,7 +64,7 @@ const Menu: FC = () => {
                 />
               </svg>
             </Link>
-            <Link to="/profile" className="menu__link menu__link--profile">
+            <Link to="/orders" className="menu__link menu__link--profile">
               <svg
                 width="20"
                 height="20"

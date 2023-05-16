@@ -4,6 +4,7 @@ import "./Button.scss";
 
 interface ButtonProps {
   children: React.ReactNode;
+  // children: any;
   extraClassName?: string;
 }
 

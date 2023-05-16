@@ -1,0 +1,15 @@
+.btn__content {
+  position: relative;
+  padding-left: 20px;
+  &::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background-image: url(../../../assets/icons/arrow-left.svg);
+    background-repeat: no-repeat;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

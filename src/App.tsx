@@ -8,6 +8,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import HomePage from "./pages/HomePage/HomePage";
 
 import "./App.scss";
+import OrdersPage from "./pages/OrdersPage/OrdersPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/bookmarks" element={<BookMarksPage />} />
+            <Route path="/orders" element={<OrdersPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
