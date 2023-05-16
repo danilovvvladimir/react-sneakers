@@ -1,0 +1,98 @@
+.sneakers__item {
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  border-radius: 40px;
+  padding: 25px;
+  position: relative;
+  width: 210px;
+  height: 260px;
+  transition: all 0.15s ease;
+  &-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding: 10px;
+    padding-bottom: 12px;
+    padding-left: 11px;
+    border-radius: 10px;
+  }
+  &-image {
+    width: 133px;
+    height: 112px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+  &-title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 15px;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-price {
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.bookmark {
+  cursor: pointer;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  transition: all 0.2s ease;
+  &:hover {
+    .bookmark__stroke {
+      svg {
+        fill: pink;
+        rect {
+          fill: pink;
+          stroke: pink;
+        }
+      }
+    }
+    .bookmark__heart {
+      path {
+        fill: #ff8585;
+      }
+    }
+  }
+  &__stroke {
+    line-height: 0;
+    transition: all 0.2s ease;
+    svg {
+      transition: all 0.2s ease;
+      rect {
+        transition: all 0.2s ease;
+      }
+    }
+  }
+  &__heart {
+    line-height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    path {
+      transition: all 0.2s ease;
+    }
+  }
+}

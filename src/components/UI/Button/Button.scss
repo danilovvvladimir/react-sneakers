@@ -1,0 +1,28 @@
+@import "../../../assets/styles/variables.scss";
+
+.btn {
+  cursor: pointer;
+  padding: 15px 60px;
+  border: none;
+  background-color: $accent-color;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: #89c442;
+  }
+
+  &--reverse {
+    background-color: #fff;
+    color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    &:hover {
+      border-color: $accent-color;
+      background-color: $accent-color;
+      color: #fff;
+    }
+  }
+}

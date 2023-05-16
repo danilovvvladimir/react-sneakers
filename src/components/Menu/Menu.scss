@@ -1,0 +1,76 @@
+@import "../../assets/styles/variables.scss";
+.menu {
+  padding: 45px 0;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 45px;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__cart-link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  &__links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  &__link {
+    line-height: 0;
+    path {
+      transition: all 0.25s ease;
+    }
+    &:hover {
+      path {
+        fill: $accent-color;
+      }
+    }
+    &--cart {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: #5c5c5c;
+      transition: all 0.25s ease;
+      &:hover {
+        color: $accent-color;
+        path {
+          stroke: $accent-color;
+          fill: none;
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__image {
+    width: 40px;
+    height: 40px;
+  }
+  &__text {
+    margin-left: 15px;
+    color: #000;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  &__subtitle {
+    font-size: 14px;
+    line-height: 17px;
+    color: #9d9d9d;
+  }
+}

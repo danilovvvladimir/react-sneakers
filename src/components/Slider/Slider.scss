@@ -1,0 +1,28 @@
+.slider {
+  &__wrapper {
+    background: #f4efe9;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  &__sponsors {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+  }
+  &__text {
+    margin-top: 20px;
+    margin-left: 60px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    span {
+      display: block;
+    }
+  }
+}
