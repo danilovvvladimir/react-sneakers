@@ -1,13 +1,15 @@
-import React from "react";
-
-import bookmarkStrokeIMG from "../../assets/icons/bookmarks-out.svg";
-import bookmarkHeartIMG from "../../assets/icons/bookmarks-heart.svg";
-import sneakerIMG from "../../assets/images/sneakers-placeholder.png";
+import React, { FC } from "react";
 
 import "./SneakersItem.scss";
 import Button from "../UI/Button/Button";
 
-const SneakersItem = () => {
+interface SneakersProps {
+  title: string;
+  price: number;
+  imageUrl: string;
+}
+
+const SneakersItem: FC<SneakersProps> = ({ imageUrl, price, title }) => {
   return (
     <div className="sneakers__item">
       <div className="bookmark">
@@ -44,18 +46,12 @@ const SneakersItem = () => {
           </svg>
         </div>
       </div>
-      <img
-        src={sneakerIMG}
-        alt="placeholder"
-        className="sneakers__item-image"
-      />
-      <div className="sneakers__item-title">
-        Мужские Кроссовки Nike Blazer Mid Suede
-      </div>
+      <img src={imageUrl} alt="placeholder" className="sneakers__item-image" />
+      <div className="sneakers__item-title">{title}</div>
       <div className="sneakers__item-info">
         <div className="sneakers__item-price">
           Цена:
-          <span>12 999 руб.</span>
+          <span>{price} руб.</span>
         </div>
         <Button extraClassName="btn--reverse sneakers__item-btn">+</Button>
       </div>

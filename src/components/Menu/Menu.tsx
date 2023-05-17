@@ -1,8 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
 import logoIMG from "../../assets/images/logo.png";
-import Cart from "../Cart/Cart";
 
 import "./Menu.scss";
 interface MenuProps {

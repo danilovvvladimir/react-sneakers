@@ -2,6 +2,7 @@
   padding: 40px 0;
   &__list {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
   }
   &__title {
@@ -9,5 +10,10 @@
     font-size: 32px;
     line-height: 39px;
     margin-bottom: 20px;
+    &--loading,
+    &--error {
+      text-align: center;
+      margin-top: 20px;
+    }
   }
 }
