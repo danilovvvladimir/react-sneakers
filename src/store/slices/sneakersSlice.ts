@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
+  FetchSneakersParams,
   Sneakers,
   SneakersFetchStatus,
   SneakersSliceState,
@@ -11,13 +12,16 @@ const initialState: SneakersSliceState = {
   status: SneakersFetchStatus.LOADING,
 };
 
-export const fetchSneakers = createAsyncThunk<Sneakers[]>(
+export const fetchSneakers = createAsyncThunk<Sneakers[], FetchSneakersParams>(
   "sneakers/fetchSneakers",
-  async (_, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
     try {
-      const URL = "https://646443d4043c103502b5f6e1.mockapi.io/items";
+      const { order, sortBy, currentPage, searchValue } = params;
+      const URL = `https://646443d4043c103502b5f6e1.mockapi.io/items?page=${
+        currentPage + 1
+      }&limit=12&sortBy=${sortBy}&order=${order}&search=${searchValue}`;
       const response = await axios.get(URL);
-      //console.log(response);
+
       return response.data;
     } catch (error) {
       return rejectWithValue("Не удалось получить данные...");

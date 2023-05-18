@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { sneakersReducer } from "./slices/sneakersSlice";
+import { filterReducer } from "./slices/filterSlice";
 
 export const store = configureStore({
   reducer: {
     sneakersReducer,
+    filterReducer,
   },
 });
 
