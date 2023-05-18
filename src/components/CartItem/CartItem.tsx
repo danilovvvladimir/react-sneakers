@@ -1,21 +1,35 @@
 import React, { FC } from "react";
 import Button from "../UI/Button/Button";
 
-import sneakerIMG from "../../assets/images/sneakers-placeholder.png";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../../store/slices/cartSlice";
 
 import "./CartItem.scss";
 
-const CartItem: FC = () => {
+interface CartItemProps {
+  title: string;
+  price: number;
+  imageUrl: string;
+  id: string;
+}
+
+const CartItem: FC<CartItemProps> = ({ imageUrl, price, title, id }) => {
+  const dispatch = useDispatch();
+
+  const removeCartItem = () => {
+    dispatch(removeItem(id));
+  };
+
   return (
     <div className="cart__item">
-      <img src={sneakerIMG} alt="sneaker" className="cart__item-image" />
+      <img src={imageUrl} alt="sneaker" className="cart__item-image" />
       <div className="cart__item-text">
-        <div className="cart__item-title">
-          Мужские Кроссовки Nike Air Max 270
-        </div>
-        <div className="cart__item-price">12 999 руб.</div>
+        <div className="cart__item-title">{title}</div>
+        <div className="cart__item-price">{price} руб.</div>
       </div>
-      <Button extraClassName="btn--reverse cart__item-btn">
+      <Button
+        extraClassName="btn--reverse cart__item-btn"
+        onClick={removeCartItem}>
         <svg
           width="10"
           height="10"

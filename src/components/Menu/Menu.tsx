@@ -1,7 +1,9 @@
 import React, { FC } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import logoIMG from "../../assets/images/logo.png";
+import { RootState } from "../../store/store";
 
 import "./Menu.scss";
 interface MenuProps {
@@ -14,6 +16,8 @@ const Menu: FC<MenuProps> = ({ isCartVisible, setIsCartVisible }) => {
     document.querySelector("body")!.style.overflow = "hidden";
     setIsCartVisible(true);
   };
+
+  const { totalPrice } = useSelector((state: RootState) => state.cartReducer);
 
   return (
     <nav className="menu">
@@ -60,7 +64,7 @@ const Menu: FC<MenuProps> = ({ isCartVisible, setIsCartVisible }) => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <div className="menu__cart-price">1205 руб.</div>
+              <div className="menu__cart-price">{totalPrice} руб.</div>
             </button>
             <Link to="/bookmarks" className="menu__link menu__link--bookmarks">
               <svg

@@ -1,5 +1,9 @@
 import React, { FC } from "react";
-import CartItem from "../CartItem/CartItem";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import CartItemsList from "../CartItemsList/CartItemsList";
+
+import EmptyCart from "../EmptyCart/EmptyCart";
 import Button from "../UI/Button/Button";
 
 import "./Cart.scss";
@@ -10,6 +14,7 @@ interface CartProps {
 }
 
 const Cart: FC<CartProps> = ({ isCartVisible, setIsCartVisible }) => {
+  const { cartItems } = useSelector((state: RootState) => state.cartReducer);
   const handleCloseCart = (event: React.MouseEvent<HTMLElement>) => {
     if (event.target === event.currentTarget) {
       document.querySelector("body")!.style.overflow = "";
@@ -21,24 +26,7 @@ const Cart: FC<CartProps> = ({ isCartVisible, setIsCartVisible }) => {
   return (
     <div className="cart" onClick={(event) => handleCloseCart(event)}>
       <div className="cart__content">
-        <div className="cart__top">
-          <h2 className="cart__title">Корзина</h2>
-          <div className="cart__items">
-            <CartItem />
-            <CartItem />
-          </div>
-        </div>
-
-        <div className="cart__bottom">
-          <div className="cart__info">
-            <div className="cart__final-price">
-              <div>Итого:</div>
-              <div className="dotes"></div>
-              <div className="price">21 498 руб.</div>
-            </div>
-          </div>
-          <Button extraClassName="cart__btn">Оформить заказ</Button>
-        </div>
+        {cartItems.length === 0 ? <EmptyCart /> : <CartItemsList />}
       </div>
     </div>
   );

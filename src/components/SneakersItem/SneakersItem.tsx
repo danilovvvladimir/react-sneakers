@@ -2,14 +2,22 @@ import React, { FC } from "react";
 
 import "./SneakersItem.scss";
 import Button from "../UI/Button/Button";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/slices/cartSlice";
 
 interface SneakersProps {
   title: string;
   price: number;
   imageUrl: string;
+  id: string;
 }
 
-const SneakersItem: FC<SneakersProps> = ({ imageUrl, price, title }) => {
+const SneakersItem: FC<SneakersProps> = ({ imageUrl, price, title, id }) => {
+  const dispatch = useDispatch();
+  const addItemToCart = () => {
+    dispatch(addItem({ id, title, price, imageUrl }));
+  };
+
   return (
     <div className="sneakers__item">
       <div className="bookmark">
@@ -31,7 +39,6 @@ const SneakersItem: FC<SneakersProps> = ({ imageUrl, price, title }) => {
             />
           </svg>
         </div>
-
         <div className="bookmark__heart">
           <svg
             width="20"
@@ -53,7 +60,11 @@ const SneakersItem: FC<SneakersProps> = ({ imageUrl, price, title }) => {
           Цена:
           <span>{price} руб.</span>
         </div>
-        <Button extraClassName="btn--reverse sneakers__item-btn">+</Button>
+        <Button
+          extraClassName="btn--reverse sneakers__item-btn"
+          onClick={addItemToCart}>
+          +
+        </Button>
       </div>
     </div>
   );

@@ -1,0 +1,19 @@
+.empty-cart {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: center;
+  align-items: center;
+  &__image {
+    margin-bottom: 15px;
+  }
+  &__title {
+    margin-bottom: 15px;
+  }
+  &__subtitle {
+    margin-bottom: 20px;
+  }
+}
